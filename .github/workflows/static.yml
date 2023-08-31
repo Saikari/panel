@@ -24,7 +24,8 @@ jobs:
       - run: |
           npm i -g yarn
           yarn install
-
+          yarn add @sveltejs/vite-plugin-svelte@latest
+          yarn add vite@latest
       - name: Build project
         run: |
           npm run build
