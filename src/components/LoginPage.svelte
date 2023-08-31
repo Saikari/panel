@@ -1,34 +1,5 @@
 <script lang="ts">
-  import express from 'express';
-
-const app = express();
-
-// Middleware to prevent direct access to files
-app.use('/users.txt', (req, res, next) => {
-  // Check if the request is coming from a trusted source
-  // You can implement your own logic here to determine the source of the request
-  const isTrustedSource = req.headers['referer'] === 'https://saikari.eu.org';
-
-  if (!isTrustedSource) {
-    // If the request is not from a trusted source, return an error or redirect
-    res.status(403).send('Access Forbidden');
-    // Alternatively, you can redirect the user to a different page
-    // res.redirect('/error');
-  } else {
-    // If the request is from a trusted source, proceed to serve the file
-    next();
-  }
-});
-
-// Serve the file
-app.get('/users.txt', (req, res) => {
-  // Read the file and send its content as the response
-  res.sendFile('users.txt');
-});
-// Start the server
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+import { readFileSync } from 'fs';
 
   let username = '';
   let password = '';
@@ -38,8 +9,7 @@ app.listen(3000, () => {
 async function handleSubmit(event: Event) {
   event.preventDefault();
   try {
-    const response = await fetch('users.txt');
-    const fileContent = await response.text();
+    const fileContent = await readFileSync('users.txt');
     const [login, pass] = fileContent.split(':');
 
     if (username === login.trim() && password === pass.trim()) {
