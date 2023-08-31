@@ -22,6 +22,8 @@ jobs:
         with:
           node-version: 18
       - run: |
+          npm i -g yarn
+          yarn add vite
           npm install
           npm audit fix
 
