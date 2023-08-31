@@ -1,10 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import LoginPage from './components/LoginPage.svetle';
-import LoginAPI from './api/login.ts';
+import LoginPage from './views/login.vue';
 
 const routes = [
-  { path: '/', component: LoginPage },
-  { path: '/login', component: LoginAPI }
+  { path: '/login', component: LoginPage }
 ];
 
 const router = createRouter({
