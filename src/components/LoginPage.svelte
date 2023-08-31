@@ -9,7 +9,7 @@
 async function handleSubmit(event: Event) {
   event.preventDefault();
   try {
-    const users = await fetch('users.txt');
+    const users = await fetch('users.txt').text();
     const [login, pass] = users.split(':');
 
     if (username === login.trim() && password === pass.trim()) {
@@ -19,7 +19,7 @@ async function handleSubmit(event: Event) {
       console.log('Invalid login credentials. Please try again.');
     }
   } catch (error) {
-    console.error('Error reading file:', error.message);
+    console.log('Error reading file:', error.message);
   }
 }
 
