@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { readFile } from 'fs/promises';
+  
 
   let username = '';
   let password = '';
 
   export async function handle({ request, resolve }) {
   try {
-    const users = await readFile('users.txt', 'utf-8');
+    const users = await fetch('users.txt');
     const [login, pass] = users.split(':');
 
     if (username === login.trim() && password === pass.trim()) {
