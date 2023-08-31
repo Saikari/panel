@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "chmod +x vite && vite",
-    "build": "chmod +x vite && vite build",
-    "serve": "chmod +x vite && vite preview",
-    "check": "chmod +x svelte-check && svelte-check --tsconfig ./tsconfig.json"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
