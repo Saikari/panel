@@ -26,6 +26,7 @@ jobs:
           yarn install
           yarn add @sveltejs/vite-plugin-svelte@latest
           yarn add vite@latest
+          yarn add vue-router
       - name: Build project
         run: |
           npm run build
