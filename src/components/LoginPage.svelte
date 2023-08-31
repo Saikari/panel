@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import fs from 'fs';
+  import * as fs from 'fs';
 
   let username = '';
   let password = '';
