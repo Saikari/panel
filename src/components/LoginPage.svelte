@@ -1,28 +1,24 @@
 <script lang="ts">
-import { readFileSync } from 'fs';
-
   let username = '';
   let password = '';
 
-
-
-async function handleSubmit(event: Event) {
-  event.preventDefault();
-  try {
-    const fileContent = await readFileSync('users.txt');
-    const [login, pass] = fileContent.split(':');
-
-    if (username === login.trim() && password === pass.trim()) {
-      console.log('Login successful!');
+  async function handleSubmit(event: Event) {
+    event.preventDefault();
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await response.json();
+      console.log(data);
       // Redirect to the next page or perform other actions
-    } else {
-      console.log('Invalid login credentials. Please try again.');
+    } catch (error) {
+      console.log('Error:', error.message);
     }
-  } catch (error) {
-    console.log('Error reading file:', error.message);
   }
-}
-
 </script>
 
 <main>
@@ -37,7 +33,6 @@ async function handleSubmit(event: Event) {
     <button type="submit">Login</button>
   </form>
 </main>
-
 
 <style>
   main {
