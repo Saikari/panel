@@ -2,23 +2,18 @@
   let username = '';
   let password = '';
 
-  async function handleSubmit(event: Event) {
-    event.preventDefault();
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-      });
-      const data = await response.json();
-      console.log(data);
-      // Redirect to the next page or perform other actions
-    } catch (error) {
-      console.log('Error:', error.message);
-    }
+import axios from 'axios';
+
+async function handleSubmit(event: Event) {
+  event.preventDefault();
+  try {
+    const response = await axios.post('/api/login', { username, password });
+    console.log(response.data);
+    // Redirect to the next page or perform other actions
+  } catch (error) {
+    console.log('Error:', error.message);
   }
+}
 </script>
 
 <main>
