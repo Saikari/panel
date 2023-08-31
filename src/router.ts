@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginPage from './components/LoginPage.svetle';
-import LoginAPI from './components/LoginAPI.svetle';
+import LoginAPI from './api/login.ts';
 
 const routes = [
   { path: '/', component: LoginPage },
