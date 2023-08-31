@@ -6,7 +6,7 @@
   let password = '';
 
   onMount(async () => {
-    const users = fs.readFileSync('users.txt', 'utf-8');
+    const users = fs.readFile('users.txt', 'utf-8');
     const [login, pass] = users.split(':');
 
     if (username === login.trim() && password === pass.trim()) {
