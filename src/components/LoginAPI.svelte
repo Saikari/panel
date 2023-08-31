@@ -17,3 +17,4 @@ export default function(req, res) {
     res.status(500).send('Error reading file: ' + error.message);
   }
 }
+</script>
