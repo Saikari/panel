@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import * as fs from 'fs';
+  import { promises as fsPromises } from 'fs';
 
   let username = '';
   let password = '';
 
   onMount(async () => {
-    const users = await fs.promises.readFile('users.txt', 'utf-8');
+    const users = await fsPromises.readFile('users.txt', 'utf-8');
     const [login, pass] = users.split(':');
 
     if (username === login.trim() && password === pass.trim()) {
