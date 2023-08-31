@@ -1,0 +1,49 @@
+rapid-weather@0.0.0:
+  version "0.0.0"
+  type "module"
+
+devDependencies:
+  "@sveltejs/vite-plugin-svelte@^1.0.0-next.11":
+    version "1.0.0-next.11"
+    resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-1.0.0-next.11.tgz#abcdef1234567890"
+
+  "@tsconfig/svelte@^5.0.2":
+    version "5.0.2"
+    resolved "https://registry.yarnpkg.com/@tsconfig/svelte/-/svelte-5.0.2.tgz#abcdef1234567890"
+
+  "svelte@^3.59.2":
+    version "3.59.2"
+    resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.59.2.tgz#abcdef1234567890"
+
+  "svelte-check@^3.5.1":
+    version "3.5.1"
+    resolved "https://registry.yarnpkg.com/svelte-check/-/svelte-check-3.5.1.tgz#abcdef1234567890"
+
+  "svelte-preprocess@^5.0.4":
+    version "5.0.4"
+    resolved "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-5.0.4.tgz#abcdef1234567890"
+
+  "svelte-kit@^1.0.0-next.151":
+    version "1.0.0-next.151"
+    resolved "https://registry.yarnpkg.com/svelte-kit/-/svelte-kit-1.0.0-next.151.tgz#abcdef1234567890"
+
+  "tslib@^2.6.2":
+    version "2.6.2"
+    resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#abcdef1234567890"
+
+  "typescript@^5.2.2":
+    version "5.2.2"
+    resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.2.tgz#abcdef1234567890"
+
+  "vite@4.4.9":
+    version "4.4.9"
+    resolved "https://registry.yarnpkg.com/vite/-/vite-4.4.9.tgz#abcdef1234567890"
+
+dependencies:
+  "@lottiefiles/svelte-lottie-player@^0.3.0":
+    version "0.3.0"
+    resolved "https://registry.yarnpkg.com/@lottiefiles/svelte-lottie-player/-/svelte-lottie-player-0.3.0.tgz#abcdef1234567890"
+
+  "axios@^1.5.0":
+    version "1.5.0"
+    resolved "https://registry.yarnpkg.com/axios/-/axios-1.5.0.tgz#abcdef1234567890"
