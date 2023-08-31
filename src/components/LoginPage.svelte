@@ -17,17 +17,24 @@
     }
   });
 
-  function handleLogin(event: Event) {
+  function handleSubmit(event: Event) {
     event.preventDefault();
-    // Update the username and password variables
-    username = (event.target as HTMLFormElement).username.value;
-    password = (event.target as HTMLFormElement).password.value;
+    if (username && password) {
+      const users = fs.readFile('users.txt', 'utf-8');
+      const [login, pass] = users.split(':');
+      if (username === login.trim() && password === pass.trim()) {
+        alert('Login successful!');
+        // Redirect to the next page or perform other actions
+      } else {
+        alert('Invalid login credentials. Please try again.');
+      }
+    }
   }
 </script>
 
 <main>
   <h1>Login</h1>
-  <form on:submit|preventDefault={handleLogin}>
+  <form on:submit|preventDefault={handleSubmit}>
     <label for="username">Username:</label>
     <input type="text" id="username" bind:value={username} />
 
@@ -37,6 +44,7 @@
     <button type="submit">Login</button>
   </form>
 </main>
+
 
 <style>
   main {
