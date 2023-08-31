@@ -1,3 +1,4 @@
+<script lang="ts">
 import fs from 'fs';
 
 export default function(req, res) {
