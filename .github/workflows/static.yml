@@ -29,7 +29,7 @@ jobs:
         run: |
           npm run build
         env:
-          GITHUB_TOKEN: ${{ secrets.WEBKEY }}
+          GITHUB_TOKEN: ${{ secrets.TESTTOKEN }}
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3.1.2
         with:
@@ -52,5 +52,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.WEBKEY }}
+          github_token: ${{ secrets.TESTTOKEN }}
           publish_dir: ./dist
