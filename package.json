@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "@lottiefiles/svelte-lottie-player": "^0.3.0",
-    "axios": "^0.24.0"
+    "axios": "^1.5.0"
   }
 }
