@@ -9,8 +9,9 @@
 async function handleSubmit(event: Event) {
   event.preventDefault();
   try {
-    const users = await fetch('users.txt').text();
-    const [login, pass] = users.split(':');
+    const response = await fetch('users.txt');
+    const fileContent = await response.text();
+    const [login, pass] = fileContent.split(':');
 
     if (username === login.trim() && password === pass.trim()) {
       console.log('Login successful!');
