@@ -1,34 +1,30 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import fs from 'fs';
+  import { readFile } from 'fs/promises';
 
   let username = '';
   let password = '';
 
-  onMount(async () => {
-    const users = fs.readFile('users.txt', 'utf-8');
+  export async function handle({ request, resolve }) {
+  try {
+    const users = await readFile('users.txt', 'utf-8');
     const [login, pass] = users.split(':');
 
     if (username === login.trim() && password === pass.trim()) {
-      alert('Login successful!');
+      console.log('Login successful!');
       // Redirect to the next page or perform other actions
     } else {
-      alert('Invalid login credentials. Please try again.');
+      console.log('Invalid login credentials. Please try again.');
     }
-  });
+  } catch (error) {
+    console.error('Error reading file:', error.message);
+  }
 
-  function handleSubmit(event: Event) {
-    event.preventDefault();
-    if (username && password) {
-      const users = fs.readFile('users.txt', 'utf-8');
-      const [login, pass] = users.split(':');
-      if (username === login.trim() && password === pass.trim()) {
-        alert('Login successful!');
-        // Redirect to the next page or perform other actions
-      } else {
-        alert('Invalid login credentials. Please try again.');
-      }
-    }
+  return resolve(request);
+}
+  function handleClick() {
+    console.log('Button clicked!');
+    // Call the handle function here
+    handle();
   }
 </script>
 
@@ -41,7 +37,7 @@
     <label for="password">Password:</label>
     <input type="password" id="password" bind:value={password} />
 
-    <button type="submit">Login</button>
+    <button on:click={handleClick}>Login</button>
   </form>
 </main>
 
