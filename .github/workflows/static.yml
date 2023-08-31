@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3.8.1
         with:
-          node-version: 18
+          node-version: 20
       - run: |
           npm i -g yarn
           yarn install
